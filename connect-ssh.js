@@ -15,7 +15,7 @@ async function getSSHLoginDetails({ authMethod, privateKeyPath, username, passwo
         case 'privateKey':
 
             return ((privateKeyPath) => {
-                if (privateKeyPath) return privateKeyPath
+                if (privateKeyPath) return path.resolve(privateKeyPath) 
 
                 // Return default path of the ssh private keys
                 const sshKeyPaths = []

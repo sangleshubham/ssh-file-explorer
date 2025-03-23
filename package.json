@@ -1,7 +1,7 @@
 {
   "name": "ssh-file-explorer",
   "version": "1.0.0",
-  "description": "This is a personal project for exploring remote server files using ssh connection. ",
+  "description": "This is a personal project for exploring remote server files using ssh connection.",
   "main": "index.js",
   "type": "module",
   "scripts": {
