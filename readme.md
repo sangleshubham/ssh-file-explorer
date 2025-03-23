@@ -1,6 +1,6 @@
-# 🔐 SSH CLI Tool
+# 🔐 SSH File Explorer
 
-A lightweight CLI tool for establishing SSH connections using password or private key authentication. Easily connect to remote servers via terminal with flexible config options.
+A lightweight CLI tool for establishing SSH connections using password or private key authentication and exploring the files present in server. Easily connect to remote servers via terminal with flexible config options.
 
 ---
 
@@ -140,11 +140,3 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 - [ ] Optimize SSH connection & file operations
 - [ ] Final code/documentation review
 - [ ] Prepare for deployment/personal use
-
----
-
-## 🔗 Additional Resources
-
-- [Node.js CLI Best Practices (GitHub)](https://github.com/lirantal/nodejs-cli-apps-best-practices?utm_source=chatgpt.com)
-- [Building a CLI with Node.js in 2024 (Medium)](https://egmz.medium.com/building-a-cli-with-node-js-in-2024-c278802a3ef5?utm_source=chatgpt.com)
-- [Task Manager CLI Tutorial (FreeCodeCamp)](https://www.freecodecamp.org/news/nodejs-tutorial-build-a-task-manager-cli-tool/?utm_source=chatgpt.com)
