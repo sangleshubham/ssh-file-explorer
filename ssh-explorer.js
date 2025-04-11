@@ -1,9 +1,10 @@
 'use strict'
 
 import { Command } from 'commander';
-
+import readline from 'readline/promises'
 import SSHConnect from './connect-ssh.js'
 import helper from './helper.js'
+import fileFolderHelper from './file-and-folder-ssh.js';
 
 /**
  * sshConnection : Is the connection to you ssh server
@@ -49,7 +50,7 @@ const [host] = program.args ?? []
 const sshConnection = await new SSHConnect({
     host, port,
     username, password,
-    authMethod : authType, privateKeyPath
+    authMethod: authType, privateKeyPath
 })
 
 if (!sshConnection.isConnected()) {
@@ -57,4 +58,22 @@ if (!sshConnection.isConnected()) {
     process.exit(1)
 }
 
-console.log(`is Server Connected : ${sshConnection.isConnected()}`)
+let currentDirectory = `/home/${username}`
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
+// Register Extra Methods 
+const changeDirectoryTo = fileFolderHelper.cd.bind(sshConnection)
+const listFilesFor = fileFolderHelper.ls.bind(sshConnection)
+
+// Handle FTP.
+while (true) {
+    console.clear()
+    console.log(`PWD : ${currentDirectory}`)
+    const files = await listFilesFor(currentDirectory)
+    const answer = Number(await rl.question('Move In -> '))
+    currentDirectory = await changeDirectoryTo(files[answer] || ".", currentDirectory)
+}
