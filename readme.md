@@ -13,9 +13,9 @@ A lightweight CLI tool for establishing SSH connections using password or privat
 - [x] File exploration on remote server
 - [x] Download files from remote server
 - [x] Interactive prompts using `inquirer`
-- [ ] Colored CLI output using `chalk`
+- [X] Colored CLI output using `chalk`
 - [x] Robust error handling and logging
-- [ ] Cross-platform support (Linux, macOS, Windows)
+- [X] Cross-platform support (Linux, macOS, Windows)
 
 ---
 
@@ -140,6 +140,7 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 
 - [X] Test on Linux, macOS, Windows
 	- [ ] Known issue with Windows terminals: Some terminals may crash due to a known bug in the inquirer library.
+ 	- [X] Fix : Restart the terminal and rerun the code.
 - [x] Optimize SSH connection & file operations
 - [x] Final code/documentation review
 - [x] Prepare for deployment/personal use
