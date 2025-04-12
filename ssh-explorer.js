@@ -5,6 +5,7 @@ import readline from 'readline/promises'
 import SSHConnect from './connect-ssh.js'
 import helper from './helper.js'
 import fileFolderHelper from './file-and-folder-ssh.js';
+import inquirer from 'inquirer'
 
 /**
  * sshConnection : Is the connection to you ssh server
@@ -73,8 +74,21 @@ const listFilesFor = fileFolderHelper.listDirectory.bind(sshConnection)
 while (true) {
     console.clear()
     console.log(`PWD : ${currentDirectory}`)
-    const files = await listFilesFor(currentDirectory)
-    let answer = await rl.question('Move In (Default : Re-List) -> ')
-    answer = Number(answer) || 0
-    currentDirectory = await changeDirectoryTo(files[answer] || { entryType: "d", entryName: "." }, currentDirectory)
+    const choices = await listFilesFor(currentDirectory)
+    
+    // Determine the terminal's height
+    const terminalHeight = process.stdout.rows || 24; // Default to 24 if undefined
+
+    // Calculate pageSize: subtracting 4 to account for prompt and padding
+    const pageSize = Math.max(5, terminalHeight - 4); // Ensure at least 5 choices are shown
+
+    const answer = await inquirer.prompt([{
+        type: 'list',
+        name: 'path',
+        message: 'Select Directory: ',
+        choices,
+        pageSize,
+        loop : false
+      }])
+    currentDirectory = await changeDirectoryTo(answer?.path, currentDirectory)
 }

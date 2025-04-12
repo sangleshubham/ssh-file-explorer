@@ -10,8 +10,7 @@ async function listDirectory(directoryPath) {
 	}
 
 	// Prepare an object to hold directory entries.
-	// e.g. { 0: { entryType: 'd', entryName: 'folderName' }, 1: {...}, ... }
-	const directoryEntries = {};
+	const directoryEntries = [];
 
 	// Split output by lines, filter out blank lines, and remove the first summary line (the "total ..." line)
 	const lines = stdout.split("\n").filter(Boolean).slice(1);
@@ -34,14 +33,25 @@ async function listDirectory(directoryPath) {
 		const entryName = parts.slice(8).join(" ");
 
 		// Optionally log each entry. Here we convert index=1 to a "Return to parent directory" placeholder.
-		const displayName = index === 1 ? "Return to parent directory" : entryName;
-		if (index !== 0) console.log(`${index}) ${displayName}`);
+		let displayName = entryName;
+
+		switch (index) {
+			case 0:
+				displayName = "Refresh"
+				break;
+			case 1:
+				displayName = "Go Back"
+				break
+		}
 
 		// Add the entry metadata to the map
-		directoryEntries[index] = {
-			entryType,
-			entryName,
-		};
+		directoryEntries.push ({
+			name: displayName,
+			value: {
+				entryType,
+				entryName
+			}
+		})
 	});
 	return directoryEntries;
 }
