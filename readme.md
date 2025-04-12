@@ -139,7 +139,7 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 ### Week 4: Final Testing and Optimization
 
 - [X] Test on Linux, macOS, Windows
-	- [ ] Known issue with windows terminals - Some terminals are crashing because of know issue of `inquirer` library.
+	- [ ] Known issue with Windows terminals: Some terminals may crash due to a known bug in the inquirer library.
 - [x] Optimize SSH connection & file operations
 - [x] Final code/documentation review
 - [x] Prepare for deployment/personal use
