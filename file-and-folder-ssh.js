@@ -3,21 +3,19 @@ import path from 'path'
 import fs from 'fs'
 
 async function ls(dir) {
-
     const { stdout, stderr } = await this.execCommand(`ls -l "${dir}"`)
     if (stderr) return false
-    const currentFolders = { 0: { type: "d", filename: ".." }}
-    console.log("0) Go Back")
+    const currentFolders = { 1: { type: "d", filename: ".." }}
+    console.log("1) Go Back")
     stdout?.split("\n").filter(Boolean).slice(1).map(
         (line, index) => {
             let [[type], , , , , , , , ...filename] = line.split(/\s+/);
             filename = filename.join(" ")
-            console.log(`${index + 1}) ${filename}`)
-            currentFolders[index + 1] = { type, filename }
+            console.log(`${index + 2}) ${filename}`)
+            currentFolders[index + 2] = { type, filename }
         }
     )
     return currentFolders
-
 }
 
 async function cd(dir, currentDirectory) {

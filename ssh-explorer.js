@@ -74,6 +74,7 @@ while (true) {
     console.clear()
     console.log(`PWD : ${currentDirectory}`)
     const files = await listFilesFor(currentDirectory)
-    const answer = Number(await rl.question('Move In -> '))
-    currentDirectory = await changeDirectoryTo(files[answer] || ".", currentDirectory)
+    let answer = await rl.question('Move In (Default : Re-List) -> ')
+    answer = Number(answer) || 0
+    currentDirectory = await changeDirectoryTo(files[answer] || { type: "d", filename: "." }, currentDirectory)
 }
