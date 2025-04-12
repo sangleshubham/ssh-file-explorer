@@ -45,7 +45,7 @@ async function listDirectory(directoryPath) {
 		}
 
 		// Add the entry metadata to the map
-		directoryEntries.push ({
+		directoryEntries.push({
 			name: displayName,
 			value: {
 				entryType,
@@ -82,7 +82,7 @@ async function changeDirectory(selectedEntry, currentDirectory) {
 
 			const localFilePath = path.join(downloadDir, entryName);
 
-			// Download the file using the context's getFile function
+			// Download the file using the SFTPs getFast function.
 			await downloadFileWithProgress.call(this, localFilePath, remoteFilePath);
 
 			// Remain in the same directory after downloading
@@ -106,6 +106,7 @@ async function changeDirectory(selectedEntry, currentDirectory) {
 	return stdout.trim();
 }
 
+// Created for future use. 
 async function pwd() {
 	const { stdout, stderr } = await this.execCommand("pwd");
 	if (stderr) return false;
@@ -113,7 +114,7 @@ async function pwd() {
 }
 
 /**
- * Helper: Acquire an SFTP session from the underlying ssh2 client via callback.
+ * Helper: Acquire an SFTP session from the underlying ssh2 client via callback because node-ssh dont support sftp directly. 
  */
 async function getSftp() {
 	return new Promise((resolve, reject) => {

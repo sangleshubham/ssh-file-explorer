@@ -10,9 +10,9 @@ A lightweight CLI tool for establishing SSH connections using password or privat
 - [x] Supports **password** and **private key** authentication
 - [x] Simple config flags: `--host`, `--port`, `--username`, etc.
 - [ ] Logs connection status and errors
-- [ ] File exploration on remote server
-- [ ] Download files from remote server
-- [ ] Interactive prompts using `inquirer`
+- [x] File exploration on remote server
+- [x] Download files from remote server
+- [x] Interactive prompts using `inquirer`
 - [ ] Colored CLI output using `chalk`
 - [ ] Robust error handling and logging
 - [ ] Cross-platform support (Linux, macOS, Windows)
@@ -24,10 +24,11 @@ A lightweight CLI tool for establishing SSH connections using password or privat
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/ssh-cli-tool.git
-cd ssh-cli-tool
+git clone https://github.com/sangleshubham/ssh-file-explorer.git
+cd ssh-file-explorer
 npm install
 ```
+
 ---
 
 ## 🧹 Usage
@@ -35,27 +36,27 @@ npm install
 Run the CLI tool with required options:
 
 ```bash
-node index.js --host your.server.com --port 22 --username youruser --password yourpassword --authMethod password
+node ssh-explorer.js --host your.server.com --port 22 --username youruser --password yourpassword --authMethod password
 ```
 
 Or with a private key:
 
 ```bash
-node index.js --host your.server.com --port 22 --username youruser --privateKeyPath /path/to/key --authMethod privateKey
+node ssh-explorer.js --host your.server.com --port 22 --username youruser --privateKeyPath /path/to/key --authMethod privateKey
 ```
 
 ---
 
 ## ⚙️ Options
 
-| Flag               | Description                                         |
-|--------------------|-----------------------------------------------------|
-| `--host`           | SSH server hostname or IP                          |
-| `--port`           | SSH port (default: 22)                             |
-| `--username`       | SSH login username                                 |
-| `--password`       | Password for authentication                        |
-| `--privateKeyPath` | Path to private key file for key-based auth        |
-| `--authMethod`     | `'password'` or `'privateKey'`                     |
+| Flag               | Description                                 |
+| ------------------ | ------------------------------------------- |
+| `--host`           | SSH server hostname or IP                   |
+| `--port`           | SSH port (default: 22)                      |
+| `--username`       | SSH login username                          |
+| `--password`       | Password for authentication                 |
+| `--privateKeyPath` | Path to private key file for key-based auth |
+| `--authMethod`     | `'password'` or `'privateKey'`              |
 
 ---
 
@@ -71,11 +72,12 @@ node index.js --host 192.168.1.10 --port 22 --username admin --authMethod privat
 
 ```
 /project-root
-├── connect-ssh.js     # SSH Authenticator is implemented here
-├── ssh-explorer.js    # The main execution js file
-├── helper.js          # Helper code for project
+├── connect-ssh.js           # SSH Authenticator is implemented here
+├── ssh-explorer.js          # The main execution js file
+|-- file-and-folder-ssh.js   # Helper code for handling File and Folder download and traversal
+├── helper.js                # Helper code for project
 ├── package.json
-├── ssh-config.json    # Stored Configuration of remote server
+├── ssh-config.json          # Stored Configuration of remote server
 └── README.md
 ```
 
@@ -85,8 +87,9 @@ node index.js --host 192.168.1.10 --port 22 --username admin --authMethod privat
 
 - [commander](https://www.npmjs.com/package/commander) (or `yargs`) for CLI parsing
 - [node-ssh](https://www.npmjs.com/package/ssh2`) or other SSH client lib
-- [chalk](https://www.npmjs.com/package/chalk) for colored CLI output *(planned)*
-- [inquirer](https://www.npmjs.com/package/inquirer) for interactive prompts *(planned)*
+- [chalk](https://www.npmjs.com/package/chalk) for colored CLI output _(planned)_
+- [inquirer](https://www.npmjs.com/package/inquirer) for interactive prompts
+- [password-prompt] (https://www.npmjs.com/package/password-prompt) for getting password
 
 ---
 
@@ -129,7 +132,7 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 ### Week 3: Enhancements and Documentation
 
 - [ ] Add colored output using `chalk`
-- [ ] Add interactive prompts via `inquirer`
+- [x] Add interactive prompts via `inquirer`
 - [ ] Implement robust error handling
 - [ ] Set up logging for activity/errors
 - [ ] Write detailed documentation with examples

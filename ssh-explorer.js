@@ -1,7 +1,6 @@
 'use strict'
 
 import { Command } from 'commander';
-import readline from 'readline/promises'
 import SSHConnect from './connect-ssh.js'
 import helper from './helper.js'
 import fileFolderHelper from './file-and-folder-ssh.js';
@@ -61,11 +60,6 @@ if (!sshConnection.isConnected()) {
 
 let currentDirectory = `/home/${username}`
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
 // Register Extra Methods 
 const changeDirectoryTo = fileFolderHelper.changeDirectory.bind(sshConnection)
 const listFilesFor = fileFolderHelper.listDirectory.bind(sshConnection)
@@ -90,5 +84,6 @@ while (true) {
         pageSize,
         loop : false
       }])
+    // Change directory to selected folder.
     currentDirectory = await changeDirectoryTo(answer?.path, currentDirectory)
 }
