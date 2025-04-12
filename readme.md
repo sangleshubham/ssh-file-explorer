@@ -131,17 +131,18 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 
 ### Week 3: Enhancements and Documentation
 
-- [ ] Add colored output using `chalk`
+- [x] Add colored output using `chalk`
 - [x] Add interactive prompts via `inquirer`
 - [x] Implement robust error handling
 - [x] Write detailed documentation with examples
 
 ### Week 4: Final Testing and Optimization
 
-- [ ] Test on Linux, macOS, Windows
-- [ ] Optimize SSH connection & file operations
-- [ ] Final code/documentation review
-- [ ] Prepare for deployment/personal use
+- [X] Test on Linux, macOS, Windows
+	- [ ] Known issue with windows terminals - Some terminals are crashing because of know issue of `inquirer` library.
+- [x] Optimize SSH connection & file operations
+- [x] Final code/documentation review
+- [x] Prepare for deployment/personal use
 
 ### Week 5: If I ever get time.
 - [ ] Remove password-prompt Dependency. 
