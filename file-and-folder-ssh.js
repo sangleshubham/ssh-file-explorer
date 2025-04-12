@@ -1,11 +1,12 @@
 import path from "path";
 import fs from "fs";
+import helper from './helper.js'
 
 async function listDirectory(directoryPath) {
 	// Execute the command to list directory contents
 	const { stdout, stderr } = await this.execCommand(`ls -la "${directoryPath}"`);
 	if (stderr) {
-		console.error(`Error listing directory: ${stderr}`);
+		console.error(`${helper.messages.sftp_listing_failed} ${stderr}`);
 		return false;
 	}
 
@@ -37,10 +38,10 @@ async function listDirectory(directoryPath) {
 
 		switch (index) {
 			case 0:
-				displayName = "Refresh"
+				displayName = helper.messages.sftp_listing_refresh
 				break;
 			case 1:
-				displayName = "Go Back"
+				displayName = helper.messages.sftp_listing_goback
 				break
 		}
 
@@ -88,7 +89,7 @@ async function changeDirectory(selectedEntry, currentDirectory) {
 			// Remain in the same directory after downloading
 			return currentDirectory;
 		} catch (error) {
-			console.error("Error downloading file:", error);
+			console.error(helper.messages.sftp_downloading_failed, error);
 			return false;
 		}
 	}
@@ -99,7 +100,7 @@ async function changeDirectory(selectedEntry, currentDirectory) {
 	});
 
 	if (stderr) {
-		console.error("Error changing directory:", stderr);
+		console.error(`${helper.messages.sftp_change_directory_failed}`, stderr);
 		return false;
 	}
 

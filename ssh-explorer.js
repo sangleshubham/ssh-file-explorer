@@ -54,7 +54,7 @@ const sshConnection = await new SSHConnect({
 })
 
 if (!sshConnection.isConnected()) {
-    console.error(helper.errorMessages.login_failed)
+    console.error(helper.messages.login_failed)
     process.exit(1)
 }
 
@@ -79,7 +79,7 @@ while (true) {
     const answer = await inquirer.prompt([{
         type: 'list',
         name: 'path',
-        message: 'Select Directory: ',
+        message: helper.messages.sftp_listing_directory_question,
         choices,
         pageSize,
         loop : false

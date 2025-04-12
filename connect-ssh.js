@@ -27,28 +27,28 @@ async function getSSHLoginDetails({ authMethod, privateKeyPath, username, passwo
                 // Check if only 1 ssh key path is present in paths array
                 if (sshKeyPaths.length > 1) {
                     process.stdout.clearScreenDown()
-                    console.error(helper.errorMessages.ssh_key_length)
+                    console.error(helper.messages.ssh_key_length)
                     console.table(sshKeyPaths)
                 }
 
                 // Return the first ssh keys path
-                return sshKeyPaths[0] ? { username, privateKeyPath: sshKeyPaths[0] } : new Error(helper.errorMessages.ssh_key_invalid_path)
+                return sshKeyPaths[0] ? { username, privateKeyPath: sshKeyPaths[0] } : new Error(helper.messages.ssh_key_invalid_path)
             })(privateKeyPath)
 
         case 'password':
             if (!password) {
                 // Take input from user as password field.
                 password = await passwordPrompt('ssh password: ')
-                if (!password) return new Error(helper.errorMessages.password_not_entered)
+                if (!password) return new Error(helper.messages.password_not_entered)
             }
             return { username, password }
 
         // If invalid login method is selected.
         default: {
             process.stdout.clearScreenDown()
-            console.log(helper.errorMessages.login_method_invalid)
-            console.table(helper.errorMessages.login_method_allowed)
-            return new Error(helper.errorMessages.login_method_invalid)
+            console.log(helper.messages.login_method_invalid)
+            console.table(helper.messages.login_method_allowed)
+            return new Error(helper.messages.login_method_invalid)
         }
     }
 }
