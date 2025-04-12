@@ -63,7 +63,7 @@ node ssh-explorer.js --host your.server.com --port 22 --username youruser --priv
 ## 🔧 Example
 
 ```bash
-node index.js --host 192.168.1.10 --port 22 --username admin --authMethod privateKey --privateKeyPath ~/.ssh/id_ed25519
+node ssh-explorer.js --host 192.168.1.10 --port 22 --username admin --authMethod privateKey --privateKeyPath ~/.ssh/id_ed25519
 ```
 
 ---
@@ -134,7 +134,7 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 - [ ] Add colored output using `chalk`
 - [x] Add interactive prompts via `inquirer`
 - [x] Implement robust error handling
-- [ ] Write detailed documentation with examples
+- [x] Write detailed documentation with examples
 
 ### Week 4: Final Testing and Optimization
 
