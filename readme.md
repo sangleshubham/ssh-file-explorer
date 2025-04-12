@@ -139,8 +139,8 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 ### Week 4: Final Testing and Optimization
 
 - [X] Test on Linux, macOS, Windows
-	- [ ] Known issue with Windows terminals: Some terminals may crash due to a known bug in the inquirer library.
- 	- [X] Fix : Restart the terminal and rerun the code.
+	- [X] Known issue with Windows terminals: Some terminals may crash due to a known bug in the inquirer library.
+ 	- [X] Issue was fixed by Inquirer.js team some times back. 
 - [x] Optimize SSH connection & file operations
 - [x] Final code/documentation review
 - [x] Prepare for deployment/personal use
