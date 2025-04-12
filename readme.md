@@ -89,25 +89,7 @@ node ssh-explorer.js --host 192.168.1.10 --port 22 --username admin --authMethod
 - [node-ssh](https://www.npmjs.com/package/ssh2`) or other SSH client lib
 - [chalk](https://www.npmjs.com/package/chalk) for colored CLI output _(planned)_
 - [inquirer](https://www.npmjs.com/package/inquirer) for interactive prompts
-- [password-prompt] (https://www.npmjs.com/package/password-prompt) for getting password in cli
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
-
----
-
-## 🙌 Contributing
-
-Have suggestions or improvements? Fork the repo and submit a pull request!
-
----
-
-## 📞 Contact
-
-For support, open an issue or email [sangleshubham9@gmail.com].
+- [password-prompt](https://www.npmjs.com/package/password-prompt) for getting password in cli
 
 ---
 
@@ -147,3 +129,20 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 
 ### Week 5: If I ever get time.
 - [ ] Remove password-prompt Dependency. 
+---
+
+## 📄 License
+
+MIT License — free to use, modify, and distribute.
+
+---
+
+## 🙌 Contributing
+
+Have suggestions or improvements? Fork the repo and submit a pull request!
+
+---
+
+## 📞 Contact
+
+For support, open an issue or email [sangleshubham9@gmail.com].
