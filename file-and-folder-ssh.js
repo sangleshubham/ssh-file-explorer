@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs";
 import helper from './helper.js'
+import chalk from "chalk";
 
 async function listDirectory(directoryPath) {
 	// Execute the command to list directory contents
@@ -38,11 +39,19 @@ async function listDirectory(directoryPath) {
 
 		switch (index) {
 			case 0:
-				displayName = helper.messages.sftp_listing_refresh
+				displayName = chalk.greenBright(helper.messages.sftp_listing_refresh)
 				break;
 			case 1:
-				displayName = helper.messages.sftp_listing_goback
+				displayName = chalk.greenBright(helper.messages.sftp_listing_goback)
 				break
+			default:
+				if (entryType === 'd') {
+					// Make directory of yellow color
+					displayName = chalk.yellowBright(displayName)
+				} else if (entryType === '-') {
+					// Make file of purple color
+					displayName = chalk.hex("#6DCDB8")(displayName)
+				}
 		}
 
 		// Add the entry metadata to the map
