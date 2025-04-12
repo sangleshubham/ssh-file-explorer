@@ -66,8 +66,8 @@ const rl = readline.createInterface({
 })
 
 // Register Extra Methods 
-const changeDirectoryTo = fileFolderHelper.cd.bind(sshConnection)
-const listFilesFor = fileFolderHelper.ls.bind(sshConnection)
+const changeDirectoryTo = fileFolderHelper.changeDirectory.bind(sshConnection)
+const listFilesFor = fileFolderHelper.listDirectory.bind(sshConnection)
 
 // Handle FTP.
 while (true) {
@@ -76,5 +76,5 @@ while (true) {
     const files = await listFilesFor(currentDirectory)
     let answer = await rl.question('Move In (Default : Re-List) -> ')
     answer = Number(answer) || 0
-    currentDirectory = await changeDirectoryTo(files[answer] || { type: "d", filename: "." }, currentDirectory)
+    currentDirectory = await changeDirectoryTo(files[answer] || { entryType: "d", entryName: "." }, currentDirectory)
 }

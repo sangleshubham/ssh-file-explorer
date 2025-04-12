@@ -15,7 +15,7 @@ async function getSSHLoginDetails({ authMethod, privateKeyPath, username, passwo
         case 'privateKey':
 
             return ((privateKeyPath) => {
-                if (privateKeyPath) return {username, privateKeyPath : path.resolve(privateKeyPath) }
+                if (privateKeyPath) return { username, privateKeyPath: path.resolve(privateKeyPath) }
 
                 // Return default path of the ssh private keys
                 const sshKeyPaths = []
@@ -72,7 +72,7 @@ async function getSSHServer(config = {}) {
 
         try {
             sshServer = await new NodeSSH().connect({
-                host: config.host, port: config.port || 22, 
+                host: config.host, port: config.port || 22,
                 username, ...(password && { password }),
                 ...(privateKeyPath && { privateKeyPath })
             })
