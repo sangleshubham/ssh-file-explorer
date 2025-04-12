@@ -120,11 +120,11 @@ For support, open an issue or email [sangleshubham9@gmail.com].
 
 ### Week 2: File Exploration and Downloading
 
-- [ ] List directories/files on remote server
-- [ ] Navigate remote directories via CLI
-- [ ] Download files from remote to local
-- [ ] Show download progress indicators
-- [ ] Test and debug file features
+- [x] List directories/files on remote server
+- [x] Navigate remote directories via CLI
+- [x] Download files from remote to local
+- [x] Show download progress indicators
+- [x] Test and debug file features
 
 ### Week 3: Enhancements and Documentation
 
