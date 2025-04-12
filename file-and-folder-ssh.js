@@ -39,10 +39,10 @@ async function listDirectory(directoryPath) {
 
 		switch (index) {
 			case 0:
-				displayName = chalk.greenBright(helper.messages.sftp_listing_refresh)
+				displayName = chalk.hex("#e40711")(helper.messages.sftp_listing_refresh)
 				break;
 			case 1:
-				displayName = chalk.greenBright(helper.messages.sftp_listing_goback)
+				displayName = chalk.hex("#e40711")(helper.messages.sftp_listing_goback)
 				break
 			default:
 				if (entryType === 'd') {
