@@ -71,7 +71,7 @@ while (true) {
     const choices = await listFilesFor(currentDirectory)
     
     // Determine the terminal's height
-    const terminalHeight = process.stdout.rows || 24; // Default to 24 if undefined
+    const terminalHeight = process.stdout.rows || 10; // Default to 10 if undefined
 
     // Calculate pageSize: subtracting 4 to account for prompt and padding
     const pageSize = Math.max(5, terminalHeight - 4); // Ensure at least 5 choices are shown
@@ -85,5 +85,5 @@ while (true) {
         loop : false
       }])
     // Change directory to selected folder.
-    currentDirectory = await changeDirectoryTo(answer?.path, currentDirectory)
+    currentDirectory = await changeDirectoryTo(answer?.path, currentDirectory) || `/home/${username}`
 }
