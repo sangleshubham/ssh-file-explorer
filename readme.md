@@ -72,9 +72,10 @@ node index.js --host 192.168.1.10 --port 22 --username admin --authMethod privat
 
 ```
 /project-root
-├── src/connect-ssh.js           # SSH Authenticator is implemented here
-├── src/file-and-folder-ssh.js   # Helper code for handling File and Folder download and traversal
-├── src/helper.js                # Helper code for project
+├── src           
+    ├── connect-ssh.js           # SSH Authenticator is implemented here
+    ├── file-and-folder-ssh.js   # Helper code for handling File and Folder download and traversal
+    ├── helper.js                # Helper code for project
 ├── index.js          		 # The main execution js file
 ├── package.json
 └── README.md
