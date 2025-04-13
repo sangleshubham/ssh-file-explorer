@@ -36,13 +36,13 @@ npm install
 Run the CLI tool with required options:
 
 ```bash
-node ssh-explorer.js --host your.server.com --port 22 --username youruser --password yourpassword --authMethod password
+node index.js --host your.server.com --port 22 --username youruser --password yourpassword --authMethod password
 ```
 
 Or with a private key:
 
 ```bash
-node ssh-explorer.js --host your.server.com --port 22 --username youruser --privateKeyPath /path/to/key --authMethod privateKey
+node index.js --host your.server.com --port 22 --username youruser --privateKeyPath /path/to/key --authMethod privateKey
 ```
 
 ---
@@ -63,7 +63,7 @@ node ssh-explorer.js --host your.server.com --port 22 --username youruser --priv
 ## 🔧 Example
 
 ```bash
-node ssh-explorer.js --host 192.168.1.10 --port 22 --username admin --authMethod privateKey --privateKeyPath ~/.ssh/id_ed25519
+node index.js --host 192.168.1.10 --port 22 --username admin --authMethod privateKey --privateKeyPath ~/.ssh/id_ed25519
 ```
 
 ---
@@ -72,12 +72,11 @@ node ssh-explorer.js --host 192.168.1.10 --port 22 --username admin --authMethod
 
 ```
 /project-root
-├── connect-ssh.js           # SSH Authenticator is implemented here
-├── ssh-explorer.js          # The main execution js file
-|-- file-and-folder-ssh.js   # Helper code for handling File and Folder download and traversal
-├── helper.js                # Helper code for project
+├── src/connect-ssh.js           # SSH Authenticator is implemented here
+├── src/file-and-folder-ssh.js   # Helper code for handling File and Folder download and traversal
+├── src/helper.js                # Helper code for project
+├── index.js          		 # The main execution js file
 ├── package.json
-├── ssh-config.json          # Stored Configuration of remote server
 └── README.md
 ```
 
