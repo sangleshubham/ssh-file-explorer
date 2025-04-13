@@ -1,9 +1,9 @@
 'use strict'
 
 import { Command } from 'commander';
-import SSHConnect from './connect-ssh.js'
-import helper from './helper.js'
-import fileFolderHelper from './file-and-folder-ssh.js';
+import SSHConnect from './src/connect-ssh.js'
+import helper from './src/helper.js'
+import fileFolderHelper from './src/file-and-folder-ssh.js';
 import inquirer from 'inquirer'
 
 /**
